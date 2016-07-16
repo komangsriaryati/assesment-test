@@ -1,0 +1,35 @@
+1. Test Search Function
+- Valid Data
+ a. Exist item
+ b. Search category 
+ c. Search sub category
+ c. Exist numeric : price
+ 
+- Invalid Data
+ a. Not exist string
+ b. Blank
+ c. Special characters
+ 
+
+ 
+2. Test Login
+- Invalid Data
+ a. Blank email and password
+ b. Blank email only
+ c. Blank password only
+ d. Invalid email
+ e. unregister email
+ e. Invalid password
+ 
+- Valid Data
+ a. Valid email and password
+ 
+3. 
+
+
+Saat kapan implisit wait. Saat kapan explisit wait
+Document Object Model (DOM) adalah object model standar untuk HTML dan XML yang bersifat platform independent. Sebuah web browser tidak harus menggunakan DOM untuk menampilkan dokumen HTML.
+
+DOM diperlukan oleh JavaScript yang akan mengubah tampilan sebuah website secara dinamis. Dengan kata lain, DOM adalah cara JavaScript melihat suatu halaman HTML.
+ 
+Sebelum ada standar DOM dari W3C, masing-masing web browser memiliki DOM sendiri. Akibatnya, bila suatu website ingin ditampilkan secara cross-browser compatible, ia harus dirancang untuk setiap web browser yang akan didukung. DOM standar mempermudah pengembangan aplikasi web.
