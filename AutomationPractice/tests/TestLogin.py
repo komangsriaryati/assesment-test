@@ -2,12 +2,16 @@ import unittest
 from selenium import webdriver
 import libraries.page
 
-class TestMyStoreSearch(unittest.TestCase):
+class TestLogin(unittest.TestCase):
     """Test class for login function"""
 
     def setUp(self):
         self.driver = webdriver.Firefox()
         self.driver.get("http://automationpractice.com/")
+
+        # Load the main page and click sign in.
+        self.main_page = libraries.page.MainPage(self.driver)
+        self.main_page.click_sign_in_link()
 
     # region Valid Data Tests
     def test_login_valid_data(self):
@@ -17,22 +21,18 @@ class TestMyStoreSearch(unittest.TestCase):
 
         Steps:
         1. Open browser and go to destination URL.
-        2. Click sign in link on top left.
+        2. Click sign in link on top right.
         2. Input valid email and password.
         3. Click on the sign in button.
 
         Expected result:
-        "Welcome to your account" displayed
+        "Welcome to your account, Here you can manage all of your personal information and orders." displayed
         """
 
-        # Load the main page and click sign in.
-        main_page = libraries.page.MainPage(self.driver)
-        main_page.click_sign_in_link()
-
         # Login with registered email and password
-        main_page.email_element = "komangsriaryati@yahoo.co.id"
-        main_page.password_element ="automation123"
-        main_page.click_sign_in_button()
+        self.main_page.email_element = "komangsriaryati@yahoo.co.id"
+        self.main_page.password_element ="automation123"
+        self.main_page.click_sign_in_button()
         self.driver.implicitly_wait(10)
 
         # Verifies "Welcome to your account. Here you can manage all of your personal information and orders." displayed
@@ -47,19 +47,15 @@ class TestMyStoreSearch(unittest.TestCase):
 
         Steps:
         1. Open browser and go to destination URL.
-        2. Click sign in link on top left.
+        2. Click sign in link on top right.
         3. Click on the sign in button.
 
         Expected result:
         "An email address required" displayed
         """
 
-        # Load the main page and click sign in.
-        main_page = libraries.page.MainPage(self.driver)
-        main_page.click_sign_in_link()
-
         # Login without specify email and password
-        main_page.click_sign_in_button()
+        self.main_page.click_sign_in_button()
         self.driver.implicitly_wait(10)
 
         # Verifies "An email address required" displayed
@@ -72,7 +68,7 @@ class TestMyStoreSearch(unittest.TestCase):
 
         Steps:
         1. Open browser and go to destination URL.
-        2. Click sign in link on top left.
+        2. Click sign in link on top right.
         3. Input email only.
         4. Click on the sign in button.
 
@@ -80,14 +76,10 @@ class TestMyStoreSearch(unittest.TestCase):
         "Password is required" displayed
         """
 
-        # Load the main page and click sign in.
-        main_page = libraries.page.MainPage(self.driver)
-        main_page.click_sign_in_link()
-
         # Login without specify password
-        main_page.email_element = "komangsriaryati@yahoo.co.id"
+        self.main_page.email_element = "komangsriaryati@yahoo.co.id"
         self.driver.implicitly_wait(10)
-        main_page.click_sign_in_button()
+        self.main_page.click_sign_in_button()
 
         # Verifies "Password is required" displayed
         assert "Password is required" in self.driver.page_source
@@ -97,7 +89,7 @@ class TestMyStoreSearch(unittest.TestCase):
 
         Steps:
         1. Open browser and go to destination URL.
-        2. Click sign in link on top left.
+        2. Click sign in link on top right.
         3. Input invalid email format, e.g. "komangsriaryati"
         4. Click on the sign in button.
 
@@ -105,14 +97,10 @@ class TestMyStoreSearch(unittest.TestCase):
         "Invalid email address" displayed
         """
 
-        # Load the main page and click sign in.
-        main_page = libraries.page.MainPage(self.driver)
-        main_page.click_sign_in_link()
-
         # Login with invalid email format
-        main_page.email_element = "komangsriaryati"
+        self.main_page.email_element = "komangsriaryati"
         self.driver.implicitly_wait(10)
-        main_page.click_sign_in_button()
+        self.main_page.click_sign_in_button()
 
         # Verifies "Invalid email address" displayed
         assert "Invalid email address" in self.driver.page_source
@@ -125,7 +113,7 @@ class TestMyStoreSearch(unittest.TestCase):
 
         Steps:
         1. Open browser and go to destination URL.
-        2. Click sign in link on top left.
+        2. Click sign in link on top right.
         3. Input valid email.
         4. Input invalid password with length < 5 e.g. "test"
         5. Click on the sign in button.
@@ -134,15 +122,11 @@ class TestMyStoreSearch(unittest.TestCase):
         "Invalid password" displayed
         """
 
-        # Load the main page and click sign in.
-        main_page = libraries.page.MainPage(self.driver)
-        main_page.click_sign_in_link()
-
         # Login with invalid password format
-        main_page.email_element = "komangsriaryati@yahoo.co.id"
-        main_page.password_element = "test"
+        self.main_page.email_element = "komangsriaryati@yahoo.co.id"
+        self.main_page.password_element = "test"
         self.driver.implicitly_wait(10)
-        main_page.click_sign_in_button()
+        self.main_page.click_sign_in_button()
 
         # Verifies "Invalid password" displayed
         assert "Invalid password" in self.driver.page_source
@@ -154,7 +138,7 @@ class TestMyStoreSearch(unittest.TestCase):
 
         Steps:
         1. Open browser and go to destination URL.
-        2. Click sign in link on top left.
+        2. Click sign in link on top right.
         3. Input valid email.
         4. Input unregistered password i.e. "test123"
         5. Click on the sign in button.
@@ -163,19 +147,14 @@ class TestMyStoreSearch(unittest.TestCase):
         "Authentication failed" displayed
         """
 
-        # Load the main page and click sign in.
-        main_page = libraries.page.MainPage(self.driver)
-        main_page.click_sign_in_link()
-
         # Login with unregistered password
-        main_page.email_element = "komangsriaryati@yahoo.co.id"
-        main_page.password_element = "test123"
+        self.main_page.email_element = "komangsriaryati@yahoo.co.id"
+        self.main_page.password_element = "test123"
         self.driver.implicitly_wait(10)
-        main_page.click_sign_in_button()
+        self.main_page.click_sign_in_button()
 
         # Verifies "Authentication failed" displayed
         assert "Authentication failed" in self.driver.page_source
-    # endregion
 
     def test_login_unregistered_email(self):
         """Test login function for unregistered email i.e. "automation@gmail.com"
@@ -184,7 +163,7 @@ class TestMyStoreSearch(unittest.TestCase):
 
         Steps:
         1. Open browser and go to destination URL.
-        2. Click sign in link on top left.
+        2. Click sign in link on top right.
         3. Input unregistered email. i.e. "automation@gmail.com"
         4. Input unregistered password i.e. "test123"
         5. Click on the sign in button.
@@ -193,18 +172,16 @@ class TestMyStoreSearch(unittest.TestCase):
         "Authentication failed" displayed
         """
 
-        # Load the main page and click sign in.
-        main_page = libraries.page.MainPage(self.driver)
-        main_page.click_sign_in_link()
-
         # Login with unregistered password
-        main_page.email_element = "automation@gmail.com"
-        main_page.password_element = "test123"
+        self.main_page.email_element = "automation@gmail.com"
+        self.main_page.password_element = "test123"
         self.driver.implicitly_wait(10)
-        main_page.click_sign_in_button()
+        self.main_page.click_sign_in_button()
 
         # Verifies "Authentication failed" displayed
         assert "Authentication failed" in self.driver.page_source
+    # endregion
+
     def tearDown(self):
         self.driver.quit()
 

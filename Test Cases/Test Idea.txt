@@ -3,7 +3,7 @@
  a. Exist item
  b. Search category 
  c. Search sub category
- c. Exist numeric : price
+ c. Exist numeric : price ????
  
 - Invalid Data
  a. Not exist string
@@ -24,7 +24,15 @@
 - Valid Data
  a. Valid email and password
  
-3. 
+3. Contact Us
+- Valid data
+a. valid email, message
+
+- Invalid data
+a. Invalid email
+b. Blank email
+c. Blank message only
+
 
 
 Saat kapan implisit wait. Saat kapan explisit wait
