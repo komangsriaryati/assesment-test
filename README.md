@@ -14,7 +14,7 @@
 # How To Use and Verify
 Please run the following tests :
 1. TestContactUs.py that is containing 4 test ideas :
-POSITIVE TEST:
+   POSITIVE TEST:
 - Send Message using Valid Data
 NEGATIVE TESTS:
 - Send Message using Blank Email
