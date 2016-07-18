@@ -3,16 +3,13 @@
 2. selenium-server-standalone-2.53.1
 
 # Description
-1. AutomationPractice Folder
-   Proof of concept automation testing using selenium and python for AutomationPractice http://automationpractice.com
-2. Test Cases Folder
-   Contains 4 file test cases :
+1. AutomationPractice Folder : Proof of concept automation testing using selenium and python for AutomationPractice http://automationpractice.com
+2. Test Cases Folder contains 4 file test cases :
    - Contact Us Function Test Cases.xlsx
    - Login Function Test Cases.xlsx
    - Order Function Test Cases.xlsx
    - Search Funtion Test Cases.xlsx
-3. Bug Report Folder
-   Contains 1 bug report related to search function.
+3. Bug Report Folder contains 1 bug report related to search function.
 
 # How To Use and Verify
 Please run the following tests :
