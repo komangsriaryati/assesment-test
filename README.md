@@ -1,6 +1,6 @@
 # Requirements
-1.Python 2.7.12
-2.selenium-server-standalone-2.53.1
+1. Python 2.7.12
+2. selenium-server-standalone-2.53.1
 
 # Description
 1. AutomationPractice Folder
