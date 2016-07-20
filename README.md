@@ -12,6 +12,10 @@
 3. Bug Report Folder contains 1 bug report related to search function.
 
 # How To Use and Verify
+Test Design using Positive and Negative Testing 
+- Positive Testing - testing the system by giving the valid data.
+- Negative Testing - testing the system by giving the Invalid data.
+
 1. TestContactUs.py that is containing 4 test ideas (Refer to "Test Cases \ Contact Us Function Test Cases.xlsx")
    - POSITIVE TEST - Send Message using Valid Data
    - NEGATIVE TEST - Send Message using Blank Email
